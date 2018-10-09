@@ -1,0 +1,5 @@
+twitter_package/config.py
+*.csv
+*.ipynb
+*.pickle
+ada.pickle
