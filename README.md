@@ -1,6 +1,7 @@
 # Identifying Tweet Geographic Location
 
 ## Project Motivation
+Twitter offers particularly useful data because all tweets are happening in real-time. This affords us the opportunity to understand things such as localized disease outbreaks or user engagement on current events. However, in order to conduct such projects, it is important to be able to identify the geographic location of relevant tweets. While Twitter allows users to geotag their tweets, only about 1% of tweets are actually geotagged. This limits the amount of useful information available. This project is intended to potentially identify the geographic location of tweets, using various machine learning models, in order to overcome this significant limitation. 
 
 ## Process Overview
 ![Model Diagram](model_diagram.jpg "Model Diagram")
@@ -10,7 +11,7 @@
 A PostgreSQL database was built, using SQLAlchemy to construct the schema.
 
 ### Twitter
-Tweepy was used to access the Twitter API. Live-streamed tweets, restricted to those that were geotagged and located within the continental U.S., Hawaii, or Alaska, were stored in a PostgreSQL database. Over 3 days, approximately 50,000 tweets were stored for subsequent analysis.
+Tweepy was used to access the Twitter API. Live-streamed tweets, only restricted to those that were geotagged and located within the continental U.S., Hawaii, or Alaska, were stored in a PostgreSQL database. Over 3 days, approximately 50,000 tweets were stored for subsequent analysis.
 
 ## Defining Geographic Location
 Due to the limited number of tweets, geographic location was defined broadly as:
@@ -20,13 +21,23 @@ Due to the limited number of tweets, geographic location was defined broadly as:
 3. Midwest
 4. West
 
+![alt text](screenshot.png "Title")
+
 A given tweet was mapped to the nearest major city based on its associated longitude and latitude. Regional location was defined based on the tweet's assigned city.
 
 ## Defining Sentiment
+Measures of sentiment were added to the dataset in order to assess whether sentiment varies by region. Two measures, VADER and TextBlob, were included as a means of comparison.
 
 ### VADER
+Valence Aware Dictionary and sEntiment Reasoner or VADER is a Python package intended for sentiment analysis of social media text. Each word is rated based on how positive or negative it is. VADER produces 4 metrics:
 
-### Textblob
+* Positive: Proportion of words rated as positive in the tweet
+* Negative: Proportion of words rated as negative in the tweet
+* Neutral: Proportion of words rated as neutral in the tweet
+* Compound: A standardized (-1 to 1) score which assesses the overall sentiment of the tweet; the more positive the score, the more positive the tweet
+
+### TextBlob
+TextBlob is a Python library also intended for sentiment analysis and produces polarity and subjectivity scores. 
 
 ## Visualizations
 All visualizations were presented on Jupyter notebook.
