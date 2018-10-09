@@ -4,7 +4,7 @@
 Twitter offers particularly useful data because all tweets are happening in real-time. This affords us the opportunity to understand things such as localized disease outbreaks or user engagement on current events. However, in order to conduct such projects, it is important to be able to identify the geographic location of relevant tweets. While Twitter allows users to geotag their tweets, only about 1% of tweets are actually geotagged. This limits the amount of useful information available. This project is intended to potentially identify the geographic location of tweets, using various machine learning models, in order to overcome this significant limitation. 
 
 ## Process Overview
-![Model Diagram](model_diagram.jpg "Model Diagram")
+![Model Diagram](model_diagram.jpg)
 
 ## Data Sources
 ### Database
@@ -56,7 +56,7 @@ All visualizations were presented on Jupyter notebook.
 ## Class Imbalance
 Due to the sheer size of the south, there was an evident class imbalance. 
 
-![alt text](images/class.png "Title")
+![alt text](images/class.png)
 
 SMOTE and random oversampling were used to address this class imbalance issue. 
 
@@ -71,18 +71,18 @@ Random oversampling relies on sampling with replacement from the minority classe
 ### By Sentiment
 **VADER Score Regional Variations**
 
-![alt text](images/vader.png "Title")
+![alt text](images/vader.png)
 
 **TextBlob Score Regional Variations**
 
-![alt text](images/textblob.png "Title")
+![alt text](images/textblob.png)
 
 No meaningful variations by sentiment score, using VADER or TextBlob, were found. 
 
 ### By Time Created
 Tweet creation time was also available for all tweets, standardized to UTC time. As such, variations in tweet creation time by region (since the time zone is the same across all tweets and peak hours must differ across regions using this measure).
 
-![alt text](images/time.png "Title")
+![alt text](images/time.png)
 
 Unfortunately, no differences were found using this measure. One of the limitations was that as live tweets were being collected, they were limited by personal commute times. Tweets could only be collected when our laptops were open and had access to internet. When we were commuting, tweets were not being collected, resulting in any observed fluctuations in activity. 
 
@@ -114,10 +114,11 @@ For cross-validation, the tweet dataset was split into training and validation s
 For each classifier, a grid-search was run to determine the best hyperparameters for the given classifier. Classifiers were then fit on the training data and assessed using the following metrics:
 
 * Validation accuracy
-* Confusion matrices
 
 ### Cross-Validation: Validation Accuracy
 A given classification model was fit on the training data. It then classified the validation data. To assess the accuracy of the model, those predictions were compared to the actual labels.
+
+![alt text](images/metrics.png)
 
 ### Machine Learning Model Selection
 AdaBoost was found to be the best classifier for the data, with a validation accuracy of ~53%. 
