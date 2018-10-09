@@ -3,3 +3,4 @@ twitter_package/config.py
 *.ipynb
 *.pickle
 ada.pickle
+data/
