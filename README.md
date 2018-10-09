@@ -56,7 +56,7 @@ All visualizations were presented on Jupyter notebook.
 ## Class Imbalance
 Due to the sheer size of the south, there was an evident class imbalance. 
 
-![alt text](class.png "Title")
+![alt text](images/class.png "Title")
 
 SMOTE and random oversampling were used to address this class imbalance issue. 
 
@@ -71,18 +71,18 @@ Random oversampling relies on sampling with replacement from the minority classe
 ### By Sentiment
 **VADER Score Regional Variations**
 
-![alt text](vader.png "Title")
+![alt text](images/vader.png "Title")
 
 **TextBlob Score Regional Variations**
 
-![alt text](textblob.png "Title")
+![alt text](images/textblob.png "Title")
 
 No meaningful variations by sentiment score, using VADER or TextBlob, were found. 
 
 ### By Time Created
 Tweet creation time was also available for all tweets, standardized to UTC time. As such, variations in tweet creation time by region (since the time zone is the same across all tweets and peak hours must differ across regions using this measure).
 
-![alt text](time.png "Title")
+![alt text](images/time.png "Title")
 
 Unfortunately, no differences were found using this measure. One of the limitations was that as live tweets were being collected, they were limited by personal commute times. Tweets could only be collected when our laptops were open and had access to internet. When we were commuting, tweets were not being collected, resulting in any observed fluctuations in activity. 
 
